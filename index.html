@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Password Screen -->
+  <div id="login-screen" class="center-screen">
+    <div class="login-box">
+      <h1>Welcome</h1>
+      <input
+        type="password"
+        id="password-input"
+        placeholder="Enter password"
+      />
+      <button onclick="checkPassword()">Enter</button>
+      <p id="error-message"></p>
+    </div>
+  </div>
+
+  <!-- Main Site -->
+  <div id="main-site" class="hidden">
+
+    <header class="banner">
+      <button class="tab active" onclick="openTab('rsvp')">RSVP</button>
+      <button class="tab" onclick="openTab('wedding')">Wedding Day</button>
+      <button class="tab" onclick="openTab('travel')">Accommodation & Travel</button>
+    </header>
+
+    <main>
+      <section id="rsvp" class="tab-content active">
+        <img src="assets/rsvp.png" alt="RSVP">
+        <p>Please let us know if you can join us!</p>
+      </section>
+
+      <section id="wedding" class="tab-content">
+        <img src="assets/wedding-day.png" alt="Wedding Day">
+        <p>Details about the ceremony and schedule.</p>
+      </section>
+
+      <section id="travel" class="tab-content">
+        <img src="assets/travel.png" alt="Travel">
+        <p>Hotel options and travel information.</p>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

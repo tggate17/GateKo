@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f2f2f2;
+}
+
+/* Password Screen */
+.center-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ccc;
+}
+
+.login-box {
+  background: #eee;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  width: 280px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Main Site */
+.hidden {
+  display: none;
+}
+
+.banner {
+  background: #444;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tab.active {
+  border-bottom: 2px solid white;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
