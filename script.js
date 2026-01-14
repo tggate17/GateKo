@@ -26,3 +26,31 @@ function openTab(tabId) {
   );
   if (activeButton) activeButton.classList.add("active");
 }
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxjAAjA4x-Ek50TCrpgu-2xsF-n7tlRmD7MO4rNEXVvVzgKyfsv-B-Bg-IfABha16mz/exec";
+
+function sendRSVP(answer) {
+  const nameInput = document.getElementById("guest-name");
+  const message = document.getElementById("rsvp-message");
+
+  const guestName = nameInput.value.trim();
+
+  if (!guestName) {
+    message.textContent = "Please enter your name.";
+    return;
+  }
+
+  fetch(RSVP_ENDPOINT, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: guestName,
+      rsvp: answer
+    })
+  });
+
+  message.textContent = "Thank you! Your RSVP has been recorded.";
+  nameInput.value = "";
+}
