@@ -34,8 +34,25 @@
     <main>
       <section id="rsvp" class="tab-content active">
         <img src="assets/rsvp.png" alt="RSVP">
+
         <p>Please let us know if you can join us!</p>
+
+        <div class="rsvp-form">
+          <input
+            type="text"
+            id="guest-name"
+            placeholder="Your name"
+          />
+
+          <div class="rsvp-buttons">
+            <button onclick="sendRSVP('Yes')">Yes, I will attend</button>
+            <button onclick="sendRSVP('No')">No, I can’t attend</button>
+          </div>
+
+          <p id="rsvp-message"></p>
+        </div>
       </section>
+
 
       <section id="wedding" class="tab-content">
         <img src="assets/wedding-day.png" alt="Wedding Day">
