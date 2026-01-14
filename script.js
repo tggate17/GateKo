@@ -26,7 +26,8 @@ function openTab(tabId) {
   );
   if (activeButton) activeButton.classList.add("active");
 }
-const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxjAAjA4x-Ek50TCrpgu-2xsF-n7tlRmD7MO4rNEXVvVzgKyfsv-B-Bg-IfABha16mz/exec";
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwfT3H4wIl10a09ySJ3RcQMYsnjiaVdpgGWZUCTUBoKV_QVt-X7OVhfWDGonB94SAmt/exec";
+
 
 function sendRSVP(answer) {
   const nameInput = document.getElementById("guest-name");
