@@ -26,16 +26,32 @@
   <div id="main-site" class="hidden">
 
     <header class="banner">
-      <button class="tab active" onclick="openTab('rsvp')">RSVP</button>
+      <button class="tab active" onclick="openTab('landing')">Home</button>
+      <button class="tab" onclick="openTab('rsvp')">RSVP</button>
       <button class="tab" onclick="openTab('wedding')">Wedding Day</button>
       <button class="tab" onclick="openTab('travel')">Accommodation & Travel</button>
+      <button class="tab" onclick="openTab('hike')">Day After Hike</button>
+      <button class="tab" onclick="openTab('faq')">FAQ</button>
     </header>
 
     <main>
-      <section id="rsvp" class="tab-content active">
+
+      <!-- Landing Page -->
+      <section id="landing" class="tab-content active">
+        <p>
+          We joyfully invite you to our wedding on the 4th September 2026 at
+          Dalston Hall, Cumbria, UK.
+        </p>
+      </section>
+
+      <!-- RSVP -->
+      <section id="rsvp" class="tab-content">
         <img src="assets/rsvp.png" alt="RSVP">
 
-        <p>Please let us know if you can join us!</p>
+        <p>
+          Please RSVP by May 1st, after which we will provide menu options.
+          Please only respond if you have been invited by name.
+        </p>
 
         <div class="rsvp-form">
           <input
@@ -53,18 +69,47 @@
         </div>
       </section>
 
-
+      <!-- Wedding Day -->
       <section id="wedding" class="tab-content">
         <img src="assets/wedding-day.png" alt="Wedding Day">
         <p>Details about the ceremony and schedule.</p>
       </section>
 
+      <!-- Travel -->
       <section id="travel" class="tab-content">
         <img src="assets/travel.png" alt="Travel">
         <p>Hotel options and travel information.</p>
       </section>
-    </main>
 
+      <!-- Hike -->
+      <section id="hike" class="tab-content">
+        <p>
+          We are looking to go for a short gentle hike in the Lake District the
+          day after the wedding. You are all invited — please feel free to come
+          along.
+        </p>
+
+        <p>
+          The route is not decided yet, although the location will be reachable
+          by bus or car.
+        </p>
+
+        <p>
+          We will scout for numbers nearer the time and create WhatsApp groups
+          as and when.
+        </p>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="tab-content">
+        <p><strong>Attire:</strong> Formal but comfortable. It could be raining and may be cold, but it could also be hot and potentially sunny. There will be opportunities for dancing.</p>
+
+        <p><strong>Gifts:</strong> We recognise that people are coming from far away and that it’s an expensive time. Please don’t feel pressured to bring gifts. If you do and are stuck for ideas, please consider putting money towards our honeymoon fund.</p>
+
+        <p><strong>Boogie:</strong> Yes sir, I can boogie, boogie woogie.</p>
+      </section>
+
+    </main>
   </div>
 
   <script src="script.js"></script>
