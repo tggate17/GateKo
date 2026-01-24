@@ -8,8 +8,30 @@
 </head>
 <body>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
   <!-- Password Screen -->
   <div id="login-screen" class="center-screen">
+  <div class="login-box">
+    <h1>Welcome</h1>
+      <input
+        type="password"
+        id="password-input"
+        placeholder="Enter password"
+        class="body"
+      />
+      <p class="body">
+      Your password can be found on the back of the invitation, or ask Thomas or Michelle!
+      </p>
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error-message"></p>
+    <div id="error-message"></div>
+  </div>
+</div>
+
+<!-- <div id="login-screen" class="center-screen">
     <div class="login-box">
       <h1>Welcome</h1>
       <input
@@ -20,7 +42,7 @@
       <button onclick="checkPassword()">Enter</button>
       <p id="error-message"></p>
     </div>
-  </div>
+  </div> -->
 
   <!-- Main Site -->
   <div id="main-site" class="hidden">
@@ -39,12 +61,13 @@
       <!-- Landing Page -->
       <h1>Thomas & Michelle</h1>
       <section id="landing" class="tab-content active">
-         <img src="assets/engagement_photo.png" alt="Michelle & Thomas">
         
         <p>
-          We joyfully invite you to our wedding on the 4th September 2026 at
+          We are excited to celebrate our wedding with you on the 4th September 2026 at
           Dalston Hall, Cumbria, UK.
         </p>
+
+        <img src="assets/engagement_photo.png" alt="Michelle & Thomas">
       </section>
       </body>
 
@@ -53,7 +76,7 @@
         <img src="assets/rsvp.png" alt="RSVP">
 
         <p>
-          Please RSVP by May 1st, after which we will provide menu options.
+          Please RSVP by May 1st, after which we will provide menu options and take dietary requirements.
           Please only respond if you have been invited by name.
         </p>
 
@@ -75,7 +98,7 @@
 
       <!-- Wedding Day -->
       <section id="wedding" class="tab-content">
-        <img src="assets/wedding-day.png" alt="Wedding Day">
+        <img src="assets/Dalston_Hall_photo.png" alt="Wedding Day" class="medium-photo">
         <p>Details about the ceremony and schedule.</p>
       </section>
 
@@ -88,11 +111,18 @@
       <!-- Hike -->
       <section id="hike" class="tab-content">
         <p>
-          We are looking to go for a short gentle hike in the Lake District the
-          day after the wedding. You are all invited — please feel free to come
+          We are looking to go for a short and gentle hike in the Lake District the
+          day after the wedding (after lunch, so you can sleep in!). You are all invited — please feel free to come
           along.
         </p>
 
+          <div class="photo-row">
+            <img src="assets/misty_trees.png" alt="Trees" class="small-photo">
+            <img src="assets/lakes_landscape_photo_full.jpg" alt="Lakes" class="small-photo">
+            <img src="assets/lakes_landscape_photo_2.png" alt="Lakes 2" class="small-photo">
+          </div>
+
+        
         <p>
           The route is not decided yet, although the location will be reachable
           by bus or car.
@@ -100,15 +130,75 @@
 
         <p>
           We will scout for numbers nearer the time and create WhatsApp groups
-          as and when.
+          as and when to coordinate.
         </p>
+
+        <div class="game-container">
+            <h2>Where in the world are these cows?</h2>
+            <img id="photo" src="assets/cow5.jpg" alt="Guess where the cow is from" class="small-photo"/>
+
+            <div class="options">
+              <button onclick="checkAnswer('Cambridge')">Cambridge</button>
+              <button onclick="checkAnswer('Switzerland')">Switzerland</button>
+              <button onclick="checkAnswer('Norwich')">Norwich</button>
+              <button onclick="checkAnswer('Penrith')">Penrith</button>
+            </div>
+
+            <div id="feedback"></div>
+            <button id="next-button" onclick="nextPhoto()" style="display:none;">Next Photo</button>
+          </div>
+
+            <!-- JavaScript goes here -->
+              <script>
+              const photos = [
+                { src: 'assets/cow5.jpg', answer: 'Cambridge' },  
+                { src: 'assets/cow1.jpg', answer: 'Penrith' },
+                { src: 'assets/cow4.jpg', answer: 'Switzerland' },
+                { src: 'assets/cow2.jpg', answer: 'Cambridge' },
+                { src: 'assets/cow3.jpg', answer: 'Norwich' },
+                
+              ];
+
+              let currentIndex = 0;
+
+              function checkAnswer(selected) {
+                const feedback = document.getElementById('feedback');
+                const correct = photos[currentIndex].answer;
+
+                if (selected === correct) {
+                  feedback.textContent = "✅ Correct!";
+                  feedback.style.color = 'green';
+                } else {
+                  feedback.textContent = `❌ Wrong! Correct answer: ${correct}`;
+                  feedback.style.color = 'red';
+                }
+
+                document.getElementById('next-button').style.display = 'inline-block';
+              }
+
+              function nextPhoto() {
+                currentIndex++;
+                if (currentIndex >= photos.length) {
+                  document.getElementById('photo').style.display = 'none';
+                  document.querySelector('.options').style.display = 'none';
+                  document.getElementById('feedback').textContent = "🎉 You finished the game!";
+                  document.getElementById('next-button').style.display = 'none';
+                  return;
+                }
+
+                document.getElementById('photo').src = photos[currentIndex].src;
+                document.getElementById('feedback').textContent = '';
+                document.getElementById('next-button').style.display = 'none';
+              }
+              </script>
+
       </section>
 
       <!-- FAQ -->
       <section id="faq" class="tab-content">
         <p><strong>Attire:</strong> Formal but comfortable. It could be raining and may be cold, but it could also be hot and potentially sunny. There will be opportunities for dancing.</p>
 
-        <p><strong>Gifts:</strong> We recognise that people are coming from far away and that it’s an expensive time. Please don’t feel pressured to bring gifts. If you do and are stuck for ideas, please consider putting money towards our honeymoon fund.</p>
+        <p><strong>Gifts:</strong> We are grateful that people are coming from far away and recognise that it’s an expensive time. Please don’t feel pressured to bring gifts. If you do and are stuck for ideas, please consider putting money towards our honeymoon fund.</p>
 
         <p><strong>Boogie:</strong> Yes sir, I can boogie, boogie woogie.</p>
       </section>

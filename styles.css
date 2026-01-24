@@ -1,3 +1,11 @@
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
 @font-face {
   font-family: 'BernardoModa';          /* The name you’ll use in your CSS */
   src: url('fonts/Bernardo\ Moda\ contrast.ttf') format('truetype'); /* Path to your .ttf file */
@@ -5,9 +13,25 @@
   font-style: normal;                   /* Optional: specify the font style */
 }
 
+#password-input {
+  font-family: 'Cardo', serif;
+}
+
+#password-input::placeholder {
+  font-family: 'Cardo', serif;
+}
+
 /* Use the font in your body or specific elements */
-body {
+h1, h2 {
   font-family: 'BernardoModa', sans-serif;  /* Apply the custom font */
+}
+
+.tab {
+  font-family: 'Cardo', serif; /* same as h1/h2 */
+}
+
+body {
+  font-family: 'Cardo', serif;
 }
 
 /* {
@@ -20,39 +44,118 @@ body {
   background: #f2f2f2;
 }
 
-/* Password Screen */
+/* Make sure body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Cardo', serif;
+}
+
+/* Centering container */
 .center-screen {
-  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ccc;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  height: 100vh;           /* full viewport height */
+  background: linear-gradient(135deg, #f0f2f5, #e0e4ea);
 }
 
+/* Make sure html and body fill the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Cardo', serif;
+  background: linear-gradient(135deg, #f0f2f5, #e0e4ea); /* soft modern gradient */
+}
+
+/* Centering container */
+
+
+.center-screen {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  height: 100vh;
+  padding: 10px;           /* small padding for mobile screens */
+}
+
+/* Login box */
 .login-box {
-  background: #eee;
-  padding: 30px;
-  border-radius: 8px;
+  background: #fff;
+  padding: 40px 30px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   text-align: center;
-  width: 280px;
+  
+  display: flex;
+  flex-direction: column; /* stack elements vertically */
+  align-items: center;    /* center horizontally */
+  gap: 15px;              /* consistent spacing between elements */
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
+/* Animation keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+.login-box h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs */
 .login-box input {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 4px;
+  box-sizing: border-box; /* ensures padding doesn't break width */
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
+.login-box input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74,144,226,0.3);
+}
+
+/* Button */
 .login-box button {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px;
+  background: #4a90e2;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
+.login-box button:hover {
+  background: #357ab8;
+  transform: translateY(-2px);
+}
+
+/* Error message */
 #error-message {
-  color: red;
-  margin-top: 10px;
+  color: #e74c3c;
+  font-size: 0.9rem;
+  min-height: 1em;
+  font-weight: 500;
 }
 
 /* Main Site */
@@ -107,5 +210,59 @@ main {
   display: block;
 }
 
+.small-photo {
+  width: 25%; /* relative to container */
+  height: auto;
+}
 
+.medium-photo {
+  width: 50%; /* relative to container */
+  height: auto;
+}
+
+.game-container {
+  text-align: center;
+  font-family: 'Cardo', serif;
+  padding: 10px;
+  background: transparent !important;
+}
+
+.game-container img {
+  max-width: 80%;
+  height: auto;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: transparent !important;
+}
+
+.options button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background: #4a90e2;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+}
+
+.options button:hover {
+  background: #357ab8;
+}
+
+#feedback {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  img {
+    max-height: 55vh;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+  }
+}
 
