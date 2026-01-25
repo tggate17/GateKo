@@ -182,34 +182,32 @@
 
 <!-- Hike -->
 <section id="hike" class="tab-content">
-  <h1>Hike day after the wedding</h1>
+  <h1>Hike after the wedding</h1>
 
-  <!-- Hike photos + text -->
-  <div class="split-section hike-section">
-    <!-- Left: Photos -->
-    <div class="split-image hike-images">
-      <div class="row">
-        <img src="assets/misty_trees.png" alt="Trees" class="medium-photo">
-        <img src="assets/lakes_landscape_photo_full.jpg" alt="Lakes" class="medium-photo">
+  <!-- Top images + text side by side -->
+  <div class="hike-top">
+    <!-- Left images -->
+    <div class="hike-images">
+      <div class="top-row">
+        <img src="assets/misty_trees.png" alt="Trees" class="hike-small-photo">
+        <img src="assets/lakes_landscape_photo_full.jpg" alt="Lakes" class="hike-small-photo">
       </div>
-      <div class="row row-center">
-        <img src="assets/lakes_landscape_photo_2.png" alt="Lakes 2" class="medium-photo">
+      <div class="bottom-row">
+        <img src="assets/lakes_landscape_photo_2.png" alt="Lakes 2" class="hike-small-photo">
       </div>
     </div>
 
-    <!-- Right: Text -->
-    <div class="split-content">
+    <!-- Right text -->
+    <div class="hike-text">
       <p>
         We are looking to go for a short and gentle hike in the Lake District the
         day after the wedding (after lunch, so you can sleep in!). You are all invited — please feel free to come
         along.
       </p>
-
       <p>
         The route is not decided yet, although the location will be reachable
         by bus or car.
       </p>
-
       <p>
         We will scout for numbers nearer the time and create WhatsApp groups
         as and when to coordinate.
@@ -217,16 +215,11 @@
     </div>
   </div>
 
-  <!-- Hike Game -->
-  <div class="split-section game-section">
-    <!-- Left: Game image -->
-    <div class="split-image">
+  <!-- Game section -->
+  <div class="hike-game">
+    <h2>Where in the world are these cows?</h2>
+    <div class="game-container">
       <img id="photo" src="assets/cow5.jpg" alt="Guess where the cow is from" class="game-photo">
-    </div>
-
-    <!-- Right: Game buttons -->
-    <div class="split-content">
-      <h2>Where in the world are these cows?</h2>
 
       <div class="options">
         <button onclick="checkAnswer('Cambridge')">Cambridge</button>
@@ -239,6 +232,49 @@
       <button id="next-button" onclick="nextPhoto()" style="display:none;">Next Photo</button>
     </div>
   </div>
+
+  <!-- JavaScript -->
+  <script>
+    const photos = [
+      { src: 'assets/cow5.jpg', answer: 'Cambridge' },  
+      { src: 'assets/cow1.jpg', answer: 'Penrith' },
+      { src: 'assets/cow4.jpg', answer: 'Switzerland' },
+      { src: 'assets/cow2.jpg', answer: 'Cambridge' },
+      { src: 'assets/cow3.jpg', answer: 'Norwich' },
+    ];
+
+    let currentIndex = 0;
+
+    function checkAnswer(selected) {
+      const feedback = document.getElementById('feedback');
+      const correct = photos[currentIndex].answer;
+
+      if (selected === correct) {
+        feedback.textContent = "✅ Correct!";
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = `❌ Wrong! Correct answer: ${correct}`;
+        feedback.style.color = 'red';
+      }
+
+      document.getElementById('next-button').style.display = 'inline-block';
+    }
+
+    function nextPhoto() {
+      currentIndex++;
+      if (currentIndex >= photos.length) {
+        document.getElementById('photo').style.display = 'none';
+        document.querySelector('.options').style.display = 'none';
+        document.getElementById('feedback').textContent = "🎉 You are legen-dairy!";
+        document.getElementById('next-button').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('photo').src = photos[currentIndex].src;
+      document.getElementById('feedback').textContent = '';
+      document.getElementById('next-button').style.display = 'none';
+    }
+  </script>
 </section>
 
 
