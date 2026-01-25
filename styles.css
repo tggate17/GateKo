@@ -22,7 +22,7 @@ h2 {
 }
 
 /* Use the font in your body or specific elements */
-h1, h2 {
+h1, h2, h3 {
   font-family: 'BernardoModa', sans-serif;  /* Apply the custom font */
 }
 
@@ -170,6 +170,23 @@ html, body {
   justify-content: center;
 }
 
+/* Make banner responsive */
+header.banner {
+  display: flex;
+  flex-wrap: wrap;       /* allows tabs to go to next line on small screens */
+  justify-content: center; /* center the tabs */
+  gap: 0.5rem;           /* space between buttons */
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+header.banner .tab {
+  flex: 1 1 auto;       /* let buttons shrink and grow */
+  min-width: 100px;     /* prevent buttons from getting too small */
+  margin: 0.2rem;       /* small spacing */
+  text-align: center;
+}
+
 .tab {
   background: none;
   border: none;
@@ -263,6 +280,311 @@ main {
     height: auto;
     width: auto;
     object-fit: contain;
+  }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;   /* prevent horizontal scroll */
+  overflow-x: hidden;
+  font-family: 'Cardo', serif;
+}
+
+/* Container for side-by-side photos */
+.photo-row {
+  display: flex;
+  flex-wrap: wrap;          /* wrap images on small screens */
+  gap: 15px;                /* space between images */
+  justify-content: center;  /* center the row */
+  margin: 20px 0;
+}
+
+/* Small photos */
+.photo-row .small-photo {
+  flex: 1 1 200px;    /* min width 200px, can grow */
+  max-width: 300px;   /* limit size on large screens */
+  height: auto;
+}
+
+/* Medium photos */
+.photo-row .medium-photo {
+  flex: 1 1 300px;    /* min width 300px, can grow */
+  max-width: 600px;   /* limit size on large screens */
+  height: auto;
+}
+
+/* Make images responsive on mobile */
+@media (max-width: 600px) {
+  .photo-row .small-photo,
+  .photo-row .medium-photo {
+    flex: 1 1 100%;    /* full width on mobile */
+    max-width: 100%;   /* prevent overflow */
+    margin: 0 auto;
+  }
+}
+
+/* General image scaling (for images outside photo-row) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* RSVP section container */
+.rsvp-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  max-width: 1100px;   /* controls total width */
+  margin: 0 auto;      /* centers the whole block */
+  padding: 0 20px;     /* breathing room on small screens */
+}
+
+
+/* Left photo */
+.rsvp-image {
+  flex: 0 0 30%;           /* photo takes ~40% */
+  max-width: 30%;
+  padding-left: 50px;
+}
+
+.rsvp-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+.rsvp-section {
+  display: flex;
+  align-items: flex-start; /* top-align image + text */
+  gap: 40px;
+}
+
+.rsvp-content p:first-child {
+  margin-top: 0;
+}
+
+/* Right text + form */
+.rsvp-content {
+  flex: 1 1 70%;           /* right side takes ~60% */
+  padding-left: 2px;      /* space from image */
+  padding-right: 250px;     /* prevent text from touching page edge */
+  box-sizing: border-box;
+}
+
+/* Form styling */
+.rsvp-form input {
+  width: 100%;
+  padding: 3px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.rsvp-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #4a90e2;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.rsvp-buttons button:hover {
+  background: #357ab8;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .rsvp-section {
+    flex-direction: column;  /* stack photo above text */
+    gap: 20px;
+  }
+
+  .rsvp-image,
+  .rsvp-content {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .rsvp-content {
+    padding-left: 10px;
+    padding-right: 10px;   /* smaller padding on mobile */
+    text-align: center;
+  }
+
+  .rsvp-buttons button {
+    width: 45%;
+    margin: 5px 2%;
+  }
+}
+
+.wedding-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  max-width: 1100px;   /* centers the whole layout */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Left image */
+.wedding-image {
+  flex: 0 0 40%;
+}
+
+.wedding-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Right text */
+.wedding-content {
+  flex: 1 1 60%;
+  box-sizing: border-box;
+}
+
+/* Align text top with image */
+.wedding-content p:first-child {
+  margin-top: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .wedding-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+#faq {
+  max-width: 800px;     /* readable line length */
+  margin: 0 auto;       /* center the block on the page */
+  padding: 0 20px;      /* space from screen edges */
+  text-align: left;     /* ← key change */
+}
+
+#faq img {
+  margin: 30px auto;
+  display: block;
+}
+
+#faq p {
+  margin-bottom: 1.2em;
+}
+
+
+/* Main split layout */
+.split-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px;
+}
+
+/* Hike Images */
+.hike-images {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Top row: two images side by side */
+.hike-images .row:first-child {
+  display: flex;
+  gap: 10px;
+}
+
+.hike-images .row:first-child img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Bottom row: single image centered */
+.hike-images .row-center {
+  display: flex;
+  justify-content: center;
+}
+
+.hike-images .row-center img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Right text / options */
+.split-content {
+  flex: 1 1 60%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Ensure text starts at top of image */
+.split-content p:first-child,
+.split-content h2:first-child {
+  margin-top: 0;
+}
+
+/* Game section styling */
+.game-section {
+  margin-top: 40px;
+  align-items: center;
+}
+
+/* Make game image bigger */
+.game-photo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ---------------- MOBILE FIX ---------------- */
+@media (max-width: 768px) {
+  /* Stack everything vertically */
+  .split-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Top row of images: stack instead of side by side */
+  .hike-images .row:first-child {
+    flex-direction: column;
+  }
+
+  .hike-images .row:first-child img {
+    width: 100%;
+  }
+
+  /* Bottom row: already centered, just make it full width */
+  .hike-images .row-center img {
+    width: 80%; /* slightly smaller than full width for spacing */
+  }
+
+  /* Text takes full width below images */
+  .split-content {
+    flex: 1 1 100%;
+  }
+
+  .game-photo {
+    max-width: 100%;
   }
 }
 
