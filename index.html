@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Welcome</title>
+  <title>Thomas &amp; Michelle | Wedding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
 
@@ -71,144 +72,182 @@
       </section>
       </body>
 
-      <!-- RSVP -->
-      <section id="rsvp" class="tab-content">
-        <h1>Come Join Us!</h1>
-        <img src="assets/getin.jpeg" alt="RSVP">
+<!-- RSVP -->
+<section id="rsvp" class="tab-content">
+  <h1>Come Join Us!</h1>
+  <div class="rsvp-section">
+    <!-- Left photo -->
+    <div class="rsvp-image">
+      <img src="assets/getin.jpeg" alt="RSVP">
+    </div>
 
-        <p>
-          Please RSVP by May 1st, after which we will provide menu options and take dietary requirements.
-          Only respond if you have been invited by name, or if you're sufficiently famous.
-        </p>
+    <!-- Right text + form -->
+    <div class="rsvp-content">
+      <p>
+        Please RSVP by May 1st, after which we will provide menu options and take dietary requirements.
+        Only respond if you have been invited by name, or if you're sufficiently famous.
+      </p>
 
-        <div class="rsvp-form">
-          <input
-            type="text"
-            id="guest-name"
-            placeholder="Your name"
-          />
+      <div class="rsvp-form">
+        <input type="text" id="guest-name" placeholder="Your name(s)" />
 
-          <div class="rsvp-buttons">
-            <button onclick="sendRSVP('Yes')">Yes, I will attend</button>
-            <button onclick="sendRSVP('No')">No, I can’t attend</button>
-          </div>
-
-          <p id="rsvp-message"></p>
+        <div class="rsvp-buttons">
+          <button onclick="sendRSVP('Yes')">Yes, I will attend</button>
+          <button onclick="sendRSVP('No')">No, I can’t attend</button>
         </div>
-        <p>Please no unwanted guests, see example below</p>
-        <img src="assets/shrek.jpg" alt="Wedding Day" class="medium-photo">
-      </section>
 
-      <!-- Wedding Day -->
-      <section id="wedding" class="tab-content">
-        <h1>The Big Day</h1>
-        <img src="assets/Dalston_Hall_photo.png" alt="Wedding Day" class="medium-photo">
-        <p>Ceremony will start at 2pm with welcome drinks from 1pm. After this there will be photos, dinner and dancing until midnight.</p>
-        <p>Full schedule yet to be finalised, please check back later.</p>
-      </section>
+        <p id="rsvp-message"></p>
+      </div>
 
-      <!-- Travel -->
-      <section id="travel" class="tab-content">
-        <h1>Travel</h1>
-        <img src="assets/travel.jpg" alt="Travel">
-        <p>Penrith and Carlisle both have good accomodation options and are within a taxi ride of the venue (they often prefer cash)</p>
-        <p>Both Penrith and Carlilse are accessible by car via the M6 or train on several lines (e.g. london-glasgow)</p>
-        <p>If flying into the UK, the nearest large airports for international flights are Manchester and Edinburgh, but there are also good train links to London airports</p>
-      </section>
+      <p>Please no unwanted guests, see example:
+      <img src="assets/shrek.jpg" alt="Get out of my swamp" class="small-photo"></p>
+    </div>
+  </div>
+</section>
 
-      <!-- Hike -->
-      <section id="hike" class="tab-content">
-        <h1>Hike after the wedding</h1>
-        <p>
-          We are looking to go for a short and gentle hike in the Lake District the
-          day after the wedding (after lunch, so you can sleep in!). You are all invited — please feel free to come
-          along.
-        </p>
 
-          <div class="photo-row">
-            <img src="assets/misty_trees.png" alt="Trees" class="small-photo">
-            <img src="assets/lakes_landscape_photo_full.jpg" alt="Lakes" class="small-photo">
-            <img src="assets/lakes_landscape_photo_2.png" alt="Lakes 2" class="small-photo">
-          </div>
 
-        
-        <p>
-          The route is not decided yet, although the location will be reachable
-          by bus or car.
-        </p>
+<!-- Wedding Day -->
+<section id="wedding" class="tab-content">
+  <h1>The Big Day</h1>
 
-        <p>
-          We will scout for numbers nearer the time and create WhatsApp groups
-          as and when to coordinate.
-        </p>
+  <div class="wedding-section">
+    <!-- Left image -->
+    <div class="wedding-image">
+      <img src="assets/Dalston_Hall_photo.png" alt="Wedding Day">
+    </div>
 
-        <div class="game-container">
-            <h2>Where in the world are these cows?</h2>
-            <img id="photo" src="assets/cow5.jpg" alt="Guess where the cow is from" class="small-photo"/>
+    <!-- Right text -->
+    <div class="wedding-content">
+      <p>
+        The ceremony will start at 2pm with welcome drinks from 1pm.
+      </p>
 
-            <div class="options">
-              <button onclick="checkAnswer('Cambridge')">Cambridge</button>
-              <button onclick="checkAnswer('Switzerland')">Switzerland</button>
-              <button onclick="checkAnswer('Norwich')">Norwich</button>
-              <button onclick="checkAnswer('Penrith')">Penrith</button>
-            </div>
+      <p>We kindly request that you arrive at Dalston Hall no later than 1:30pm.</p>
+      <p>After the ceremony there will be photos, dinner, and dancing until midnight.</p>
 
-            <div id="feedback"></div>
-            <button id="next-button" onclick="nextPhoto()" style="display:none;">Next Photo</button>
-          </div>
+      <p>
+        The full schedule is yet to be finalised, please check back later.
+      </p>
+    </div>
+  </div>
+</section>
 
-            <!-- JavaScript goes here -->
-              <script>
-              const photos = [
-                { src: 'assets/cow5.jpg', answer: 'Cambridge' },  
-                { src: 'assets/cow1.jpg', answer: 'Penrith' },
-                { src: 'assets/cow4.jpg', answer: 'Switzerland' },
-                { src: 'assets/cow2.jpg', answer: 'Cambridge' },
-                { src: 'assets/cow3.jpg', answer: 'Norwich' },
-                
-              ];
+<!-- Travel -->
+<section id="travel" class="tab-content">
+  <h1>Travel</h1>
 
-              let currentIndex = 0;
+  <div class="split-section">
+    <!-- Left image -->
+    <div class="split-image">
+      <img src="assets/travel.jpg" alt="Travel">
+    </div>
 
-              function checkAnswer(selected) {
-                const feedback = document.getElementById('feedback');
-                const correct = photos[currentIndex].answer;
+    <!-- Right text -->
+    <div class="split-content">
+    <h2>Accommodation</h2>  
+      <p>
+        Penrith and Carlisle both have good accommodation options and are within a taxi ride of the venue. 
+      </p>
 
-                if (selected === correct) {
-                  feedback.textContent = "✅ Correct!";
-                  feedback.style.color = 'green';
-                } else {
-                  feedback.textContent = `❌ Wrong! Correct answer: ${correct}`;
-                  feedback.style.color = 'red';
-                }
+    <h2>Getting here</h2>        
+      <p>
+        Both Penrith and Carlisle are accessible by car via the M6 or train on several lines (e.g. London-Glasgow).
+      </p>
 
-                document.getElementById('next-button').style.display = 'inline-block';
-              }
+    <h3>Planes</h3>  
+      <p>
+        If flying into the UK, the nearest large airports for international flights are Manchester and Edinburgh, but there are also good train links to London airports.
+      </p>
 
-              function nextPhoto() {
-                currentIndex++;
-                if (currentIndex >= photos.length) {
-                  document.getElementById('photo').style.display = 'none';
-                  document.querySelector('.options').style.display = 'none';
-                  document.getElementById('feedback').textContent = "🎉 You finished the game!";
-                  document.getElementById('next-button').style.display = 'none';
-                  return;
-                }
+    <h3>Trains</h3>  
+      <p>
+        If travelling by train, we recommend that you allow plenty of extra time as there are frequent delays or even cancellations. We recommend downloading the Trainline app for ease of travelling, and potentially buying a Railcard if applicable (e.g. Two Together or 26-30).
+      </p>
 
-                document.getElementById('photo').src = photos[currentIndex].src;
-                document.getElementById('feedback').textContent = '';
-                document.getElementById('next-button').style.display = 'none';
-              }
-              </script>
+    <h3>& Automobiles</h3>
+      <p>There are plenty of parking spaces at Dalston Hall. The roads in Cumbria can be quite narrow with the occasional tractor traffic or sheep crossing - please be careful. <b>Don't forget to drive on the left!</b></p>
 
-      </section>
+    <h3>Taxis</h3>  
+      <p>
+        There is a taxi rank outside of Carlisle Rail station, which is approximately a 10-minute taxi ride from the venue. We recommend that you carry cash as some drivers do not accept card.
+      </p>
+
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Hike -->
+<section id="hike" class="tab-content">
+  <h1>Hike day after the wedding</h1>
+
+  <!-- Hike photos + text -->
+  <div class="split-section hike-section">
+    <!-- Left: Photos -->
+    <div class="split-image hike-images">
+      <div class="row">
+        <img src="assets/misty_trees.png" alt="Trees" class="medium-photo">
+        <img src="assets/lakes_landscape_photo_full.jpg" alt="Lakes" class="medium-photo">
+      </div>
+      <div class="row row-center">
+        <img src="assets/lakes_landscape_photo_2.png" alt="Lakes 2" class="medium-photo">
+      </div>
+    </div>
+
+    <!-- Right: Text -->
+    <div class="split-content">
+      <p>
+        We are looking to go for a short and gentle hike in the Lake District the
+        day after the wedding (after lunch, so you can sleep in!). You are all invited — please feel free to come
+        along.
+      </p>
+
+      <p>
+        The route is not decided yet, although the location will be reachable
+        by bus or car.
+      </p>
+
+      <p>
+        We will scout for numbers nearer the time and create WhatsApp groups
+        as and when to coordinate.
+      </p>
+    </div>
+  </div>
+
+  <!-- Hike Game -->
+  <div class="split-section game-section">
+    <!-- Left: Game image -->
+    <div class="split-image">
+      <img id="photo" src="assets/cow5.jpg" alt="Guess where the cow is from" class="game-photo">
+    </div>
+
+    <!-- Right: Game buttons -->
+    <div class="split-content">
+      <h2>Where in the world are these cows?</h2>
+
+      <div class="options">
+        <button onclick="checkAnswer('Cambridge')">Cambridge</button>
+        <button onclick="checkAnswer('Switzerland')">Switzerland</button>
+        <button onclick="checkAnswer('Norwich')">Norwich</button>
+        <button onclick="checkAnswer('Penrith')">Penrith</button>
+      </div>
+
+      <div id="feedback"></div>
+      <button id="next-button" onclick="nextPhoto()" style="display:none;">Next Photo</button>
+    </div>
+  </div>
+</section>
+
 
       <!-- FAQ -->
       <section id="faq" class="tab-content">
         <h1>FAQs</h1>
         <p><strong>Attire:</strong> Formal but comfortable. The weather will likely be hot, cold, rainy and sunny so dress accordingly. There is also dancing </p>
 
-        <p><strong>Gifts:</strong> We are grateful that people are coming from far away and recognise that it’s an expensive time. Please don’t feel pressured to bring gifts. If you do and are stuck for ideas, please consider putting money towards our honeymoon fund (tbc)</p>
+        <p><strong>Gifts:</strong> We are grateful that people are coming to join us from far away and recognise that travelling can occur significant cost. Please don’t feel obligated to bring gifts. If you would like to and are stuck for ideas, please consider putting money towards our honeymoon fund.</p>
 
         <p><strong>Boogie:</strong> Yes sir, I can boogie, boogie woogie.</p>
 
