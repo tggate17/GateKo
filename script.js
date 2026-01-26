@@ -31,9 +31,11 @@ const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwfT3H4wIl10a09yS
 
 function sendRSVP(answer) {
   const nameInput = document.getElementById("guest-name");
+  const emailInput = document.getElementById("guest-email");
   const message = document.getElementById("rsvp-message");
 
   const guestName = nameInput.value.trim();
+  const guestEmail = emailInput.value.trim();
 
   if (!guestName) {
     message.textContent = "Please enter your name.";
@@ -48,10 +50,12 @@ function sendRSVP(answer) {
     },
     body: JSON.stringify({
       name: guestName,
-      rsvp: answer
+      rsvp: answer,
+      email: guestEmail
     })
   });
 
   message.textContent = "Thank you! Your RSVP has been recorded.";
   nameInput.value = "";
+  emailInput.value = "";
 }
