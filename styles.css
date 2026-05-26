@@ -1,17 +1,69 @@
-/* =========================
-   TYPOGRAPHY
-   ========================= */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
 
 @font-face {
-  font-family: 'BernardoModa';
-  src: url('fonts/Bernardo Moda contrast.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'BernardoModa';          /* The name you’ll use in your CSS */
+  src: url('fonts/Bernardo\ Moda\ contrast.ttf') format('truetype'); /* Path to your .ttf file */
+  font-weight: normal;                  /* Optional: specify the font weight */
+  font-style: normal;                   /* Optional: specify the font style */
+}
+
+#password-input {
+  font-family: 'Cardo', serif;
+}
+
+#password-input::placeholder {
+  font-family: 'Cardo', serif;
+}
+
+/* Use the font in your body or specific elements */
+h1, h2, h3 {
+  font-family: 'BernardoModa', sans-serif;  /* Apply the custom font */
+}
+
+.tab {
+  font-family: 'Cardo', serif; /* same as h1/h2 */
 }
 
 body {
+  font-family: 'Cardo', serif;
+}
+
+/* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}*/
+
+body {
   margin: 0;
-  padding: 0;
+  background: #e3dad5;
+}
+
+/* Make sure body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Cardo', serif;
+}
+
+/* Centering container */
+.center-screen {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  height: 100vh;           /* full viewport height */
+  background: linear-gradient(135deg, #f0f2f5, #e0e4ea);
+}
+
+/* Make sure html and body fill the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
   font-family: 'Cardo', serif;
   background: radial-gradient(
     circle at center,
@@ -20,67 +72,40 @@ body {
     #d1c1b5 100%
   );
   box-shadow: inset 0 0 80px rgba(0,0,0,0.08);
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
-html {
-  height: 100%;
-}
 
-/* Headings */
-h1 { font-size: 3rem; }
-h2 { font-size: 2.2rem; }
+/* Centering container */
 
-h1, h2, h3 {
-  font-family: 'BernardoModa', sans-serif;
-}
-
-/* =========================
-   GLOBAL IMAGE FIX (IMPORTANT)
-   ========================= */
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* =========================
-   LOGIN
-   ========================= */
-
-#password-input,
-#password-input::placeholder {
-  font-family: 'Cardo', serif;
-}
 
 .center-screen {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
   height: 100vh;
-  padding: 10px;
+  padding: 10px;           /* small padding for mobile screens */
 }
 
+/* Login box */
 .login-box {
-  background: #cbb59d;
-  border: 1px solid rgba(0,0,0,0.1);
+  background: #fff;
   padding: 40px 30px;
   width: 320px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-
+  text-align: center;
+  
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column; /* stack elements vertically */
+  align-items: center;    /* center horizontally */
+  gap: 15px;              /* consistent spacing between elements */
 
+  /* Animation */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease forwards;
 }
 
+/* Animation keyframes */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -88,81 +113,103 @@ img {
   }
 }
 
+/* Heading */
 .login-box h2 {
   margin: 0;
   font-size: 1.5rem;
+  font-weight: 600;
   color: #333;
 }
 
+/* Inputs */
 .login-box input {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   font-size: 1rem;
-  box-sizing: border-box;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 4px;
+  box-sizing: border-box; /* ensures padding doesn't break width */
   transition: border 0.2s ease, box-shadow 0.2s ease;
 }
+
+.login-box {
+  background: #cbb59d;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
 
 .login-box input:focus {
   border-color: #78634e;
   box-shadow: 0 0 5px rgba(74,144,226,0.3);
 }
 
+/* Button */
 .login-box button {
   width: 100%;
   padding: 12px;
   background: #78634e;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
   font-weight: 600;
-  transition: transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .login-box button:hover {
+  background: #78634e;
   transform: translateY(-2px);
 }
 
+/* Error message */
 #error-message {
   color: #e74c3c;
   font-size: 0.9rem;
   min-height: 1em;
+  font-weight: 500;
 }
 
-/* =========================
-   NAVIGATION
-   ========================= */
+/* Main Site */
+.hidden {
+  display: none;
+}
 
+/* Top navigation bar */
 .banner {
-  background-color: #cbb59d;
+  background-color: #cbb59d;   /* warm parchment brown */
   border-bottom: 2px solid #6c564276;
 }
 
+/* Make banner responsive */
 header.banner {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
+  flex-wrap: wrap;       /* allows tabs to go to next line on small screens */
+  justify-content: center; /* center the tabs */
+  gap: 0.5rem;           /* space between buttons */
   padding: 0.5rem;
+  box-sizing: border-box;
 }
 
 header.banner .tab {
-  flex: 1 1 auto;
-  min-width: 100px;
+  flex: 1 1 auto;       /* let buttons shrink and grow */
+  min-width: 100px;     /* prevent buttons from getting too small */
+  margin: 0.2rem;       /* small spacing */
   text-align: center;
-  margin: 0.2rem;
 }
 
 .tab {
   background: none;
   border: none;
+  color: color: #2f241d;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 600; /* bold but not chunky */
   color: #2f241d;
+
+  /* subtle ink bleed */
   text-shadow:
     0.3px 0.3px 0 rgba(0, 0, 0, 0.25),
    -0.3px -0.3px 0 rgba(0, 0, 0, 0.15);
@@ -172,17 +219,9 @@ header.banner .tab {
   border-bottom: 2px solid rgba(159, 132, 99, 0.842);
 }
 
-/* =========================
-   LAYOUT
-   ========================= */
-
 main {
   padding: 20px;
   text-align: center;
-}
-
-.hidden {
-  display: none;
 }
 
 .tab-content {
@@ -193,201 +232,472 @@ main {
   display: block;
 }
 
-/* =========================
-   IMAGE LAYOUTS
-   ========================= */
+/*.tab-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}*/
+
+#landing-page #landing img {
+  max-width: 700px;    /* limits image size */
+  width: 100%;         /* responsive on smaller screens */
+  height: auto;
+  margin: 20px auto;   /* centers image */
+  display: block;
+}
 
 .small-photo {
-  width: 25%;
+  width: 25%; /* relative to container */
   height: auto;
 }
 
 .medium-photo {
-  width: 50%;
+  width: 50%; /* relative to container */
   height: auto;
 }
 
-/* Photo rows */
-.photo-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+.game-container {
+  text-align: center;
+  font-family: 'Cardo', serif;
+  padding: 10px;
+  background: transparent !important;
+}
+
+.game-container img {
+  max-width: 80%;
+  height: auto;
   margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: transparent !important;
 }
 
-.photo-row .small-photo {
-  flex: 1 1 200px;
-  max-width: 300px;
+.options button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background: #4a90e2;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.2s ease;
 }
 
-.photo-row .medium-photo {
-  flex: 1 1 300px;
-  max-width: 600px;
+.options button:hover {
+  background: #357ab8;
 }
 
-@media (max-width: 600px) {
-  .photo-row .small-photo,
-  .photo-row .medium-photo {
-    flex: 1 1 100%;
+#feedback {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  img {
+    max-height: 55vh;
     max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
   }
 }
 
-/* =========================
-   LANDING IMAGE
-   ========================= */
-
-#landing-page #landing img {
-  max-width: 700px;
-  width: 100%;
-  height: auto;
-  margin: 20px auto;
+body, html {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;   /* prevent horizontal scroll */
+  overflow-x: hidden;
+  font-family: 'Cardo', serif;
 }
 
-/* =========================
-   RSVP
-   ========================= */
+/* Container for side-by-side photos */
+.photo-row {
+  display: flex;
+  flex-wrap: wrap;          /* wrap images on small screens */
+  gap: 15px;                /* space between images */
+  justify-content: center;  /* center the row */
+  margin: 20px 0;
+}
 
+/* Small photos */
+.photo-row .small-photo {
+  flex: 1 1 200px;    /* min width 200px, can grow */
+  max-width: 300px;   /* limit size on large screens */
+  height: auto;
+}
+
+/* Medium photos */
+.photo-row .medium-photo {
+  flex: 1 1 300px;    /* min width 300px, can grow */
+  max-width: 600px;   /* limit size on large screens */
+  height: auto;
+}
+
+/* Make images responsive on mobile */
+@media (max-width: 600px) {
+  .photo-row .small-photo,
+  .photo-row .medium-photo {
+    flex: 1 1 100%;    /* full width on mobile */
+    max-width: 100%;   /* prevent overflow */
+    margin: 0 auto;
+  }
+}
+
+/* General image scaling (for images outside photo-row) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* RSVP section container */
 .rsvp-section {
   display: flex;
   align-items: flex-start;
   gap: 40px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+
+  max-width: 1100px;   /* controls total width */
+  margin: 0 auto;      /* centers the whole block */
+  padding: 0 20px;     /* breathing room on small screens */
 }
 
+
+/* Left photo */
 .rsvp-image {
-  flex: 0 0 30%;
+  flex: 0 0 30%;           /* photo takes ~40% */
+  max-width: 30%;
+  padding-left: 50px;
 }
 
+.rsvp-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+.rsvp-section {
+  display: flex;
+  align-items: flex-start; /* top-align image + text */
+  gap: 40px;
+}
+
+.rsvp-content p:first-child {
+  margin-top: 0;
+}
+
+/* Right text + form */
 .rsvp-content {
-  flex: 1;
-  padding-right: 250px;
+  flex: 1 1 70%;           /* right side takes ~60% */
+  padding-left: 2px;      /* space from image */
+  padding-right: 250px;     /* prevent text from touching page edge */
   box-sizing: border-box;
 }
 
+/* Form styling */
 .rsvp-form input {
   width: 100%;
   padding: 3px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  font-size: 1rem;
   border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
 .rsvp-buttons button {
   margin: 5px;
   padding: 10px 20px;
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
   background: #4a90e2;
-  color: white;
+  color: #fff;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-/* Mobile */
+.rsvp-buttons button:hover {
+  background: #357ab8;
+}
+
+/* Mobile responsive */
 @media (max-width: 768px) {
   .rsvp-section {
-    flex-direction: column;
+    flex-direction: column;  /* stack photo above text */
     gap: 20px;
   }
 
+  .rsvp-image,
   .rsvp-content {
-    padding-right: 10px;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .rsvp-content {
+    padding-left: 10px;
+    padding-right: 10px;   /* smaller padding on mobile */
     text-align: center;
   }
 
   .rsvp-buttons button {
     width: 45%;
+    margin: 5px 2%;
   }
 }
 
+.wedding-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  max-width: 1100px;   /* centers the whole layout */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Left image */
+.wedding-image {
+  flex: 0 0 40%;
+}
+
+.wedding-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Right text */
+.wedding-content {
+  flex: 1 1 60%;
+  box-sizing: border-box;
+}
+
+/* Align text top with image */
+.wedding-content p:first-child {
+  margin-top: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .wedding-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+#faq {
+  max-width: 800px;     /* readable line length */
+  margin: 0 auto;       /* center the block on the page */
+  padding: 0 20px;      /* space from screen edges */
+  text-align: left;     /* ← key change */
+}
+
+#faq img {
+  margin: 30px auto;
+  display: block;
+}
+
+#faq p {
+  margin-bottom: 1.2em;
+}
+
+
 /* =========================
-   WEDDING / TRAVEL / FAQ
+   TRAVEL PAGE SPLIT ONLY
    ========================= */
 
-.wedding-section,
 #travel .split-section {
   display: flex;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 3rem;
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
 
-.wedding-image,
 #travel .split-image {
   flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
 }
 
-.wedding-content,
+#travel .split-image img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
 #travel .split-content {
   flex: 1;
   text-align: left;
+  padding-right: 2rem;
 }
 
-/* FAQ */
-#faq {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: left;
+#travel .split-content p {
+  line-height: 1.6;
 }
 
-/* =========================
-   HIKING GAME
-   ========================= */
+/* Align first heading with image top */
+#travel .split-content h2:first-of-type {
+  margin-top: 0;
+}
 
+@media (max-width: 768px) {
+  #travel .split-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  #travel .split-content {
+    padding-right: 0;
+  }
+}
+
+/* Hike top section: images + text side by side */
 .hike-top {
   display: flex;
+  align-items: flex-start; /* text aligns with top of images */
   gap: 30px;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* allows stacking on mobile */
 }
 
-.hike-text {
-  flex: 1;
-  max-width: 500px;
-}
-
-.hike-small-photo {
-  width: 250px;
-}
-
-.game-photo {
-  width: 400px;
-}
-
-.options {
+/* Images on the left */
+.hike-images {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.options button {
-  width: 200px;
-  padding: 10px;
-  background: #4a90e2;
-  color: white;
-  border: none;
+.top-row {
+  display: flex;
+  gap: 10px;
 }
 
-/* =========================
-   TIMELINE
-   ========================= */
+.bottom-row {
+  display: flex;
+  justify-content: center;
+}
 
+.hike-small-photo {
+  width: 250px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Text on the right */
+.hike-text {
+  flex: 1;
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Game section */
+.hike-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.game-photo {
+  width: 400px;
+  height: auto;
+}
+
+/* Game buttons */
+.options {
+  display: flex;
+  flex-direction: column; /* stack buttons vertically */
+  gap: 10px; /* space between buttons */
+  align-items: stretch; /* make all buttons the same width */
+}
+
+.options button {
+  width: 200px; /* optional fixed width */
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #4a90e2;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.options button:hover {
+  background-color: #357ab8;
+}
+
+
+/* Feedback text */
+#feedback {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Next button */
+#next-button {
+  margin-top: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hike-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hike-text {
+    max-width: 100%;
+  }
+
+  .top-row, .bottom-row {
+    justify-content: center;
+  }
+
+  .hike-small-photo {
+    width: 200px;
+  }
+
+  .game-photo {
+    width: 200px;
+  }
+}
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-top: 20px;
 }
 
 .timeline p {
   display: grid;
   grid-template-columns: 120px 1fr;
+  align-items: start;
   margin: 0;
+  text-align: left;
 }
 
 .time {
   font-weight: bold;
+}
+
+.event {
+  text-align: left;
 }
